@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <form #employeeForm="ngForm" (ngSubmit)="addEmployee(employeeForm)">
+          <input type="hidden" name="Id" [(ngModel)]="EmployeeService.selectedEmployee.Id">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              placeholder="Ingrese el Id"
+              [(ngModel)]="EmployeeService.selectedEmployee.Id"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="position"
+              placeholder="Ingrese la Tarea"
+              [(ngModel)]="EmployeeService.selectedEmployee.Tarea"
+            />
+          </div>
+          <button class="btn btn-primary mr-2" (click)="resetForm(employeeForm)">clean</button>
+          <button class="btn btn-secundary">save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <table class="table table striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Tarea</th>
+          <th>Completada</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="EmployeeServices.employees">
+          <td>
+            {{ "EmployeeServices: Id" }}
+          </td>
+          <td>
+            {{ "employees: Tarea" }}
+          </td>
+          <td>
+            {{ "employees: Completada" }}
+          </td>
+          <td>
+            {{ "employees: Eliminar" }}
+          </td>
+          <td>
+            <button class="btn btn-secundary btn-sm" (click)="getEmployees(employees)">
+              <i class="material-icons">GET</i>
+            </button>
+            <button class="btn btn-secundary btn-sm" (click)="postemployees(Employees)">
+              <i class="material-icons">Correo</i>
+            </button>
+            <button class="btn btn-secundary btn-sm" (click)="updateEmployees(Employees)">
+              <i class="material-icons">Actualizar</i>
+            </button>
+            <button class="btn btn-secundary btn-sm" (click)="deleteEmployees(Employees)">
+              <i class="material-icons">Eliminar</i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
